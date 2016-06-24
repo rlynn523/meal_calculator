@@ -50,9 +50,10 @@ function totalBill(x, y){
 	var bill = Math.round((x + y) * 100) / 100;
 	var tip = Math.round((bill * .20) * 100) / 100;
 	var tipDiners = Math.round((tip/2) * 100) / 100;
+	var total = Math.round((bill + tip) * 100) / 100;
 	console.log("Total Tip: $"+ tip);
 	console.log("Tip Per Diner: $" + tipDiners);
-	console.log("Total Bill (Sales Tax Included): $" + bill);
+	console.log("Total Bill (Sales Tax & Tip Included): $" + total);
 }
 
 //------Print Out Onto Console------//
