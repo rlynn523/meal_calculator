@@ -2,27 +2,27 @@
 console.log("Meal Calculator!");
 
 //------Constuctor Functions------//
-var diner = function(name, meal){
+var Diner = function(name, meal){
 	this.name = name,
 	this.meal = meal
 }
 
-var dish = function(food, price){
+var Dish = function(food, price){
 	this.food = food,
 	this.price = price
 }
-var bill = function(beforeTax, tax, total){
+var Bill = function(beforeTax, tax, total){
 	this.beforeTax = Math.round(beforeTax * 100) / 100,
 	this.tax = Math.round((.08 * this.beforeTax) * 100) / 100,
 	this.total = Math.round((this.beforeTax +  this.tax) * 100) / 100
 }
 
 //------Dishes------//
-var waffles = new dish("Waffles", 4.50);
-var eggs = new dish("Scrambled Eggs", 3.75);
-var toast = new dish("French Toast", 5.37);
-var coffee = new dish("Coffee", 1.20);
-var tea = new dish("Tea", 0.50);
+var waffles = new Dish("Waffles", 4.50);
+var eggs = new Dish("Scrambled Eggs", 3.75);
+var toast = new Dish("French Toast", 5.37);
+var coffee = new Dish("Coffee", 1.20);
+var tea = new Dish("Tea", 0.50);
 
 
 //------Diners------//
@@ -30,15 +30,15 @@ var ryanMeal = {
 	dishes: [waffles.food, eggs.food, coffee.food],
 	mealPrice: eggs.price + waffles.price + coffee.price
 };
-var ryanBill = new bill(ryanMeal.mealPrice, bill.tax, bill.total);
-var ryan = new diner("Ryan", ryanMeal.dishes);
+var ryanBill = new Bill(ryanMeal.mealPrice, bill.tax, bill.total);
+var ryan = new Diner("Ryan", ryanMeal.dishes);
 
 var lisaMeal = {
 	dishes: [toast.food, eggs.food, tea.food],
 	mealPrice: toast.price + eggs.price + tea.price
 };
-var lisaBill = new bill(lisaMeal.mealPrice, bill.tax, bill.total);
-var lisa = new diner("Lisa", lisaMeal.dishes);
+var lisaBill = new Bill(lisaMeal.mealPrice, bill.tax, bill.total);
+var lisa = new Diner("Lisa", lisaMeal.dishes);
 
 //------Personal Bill for Diners------//
 function personalBill(name, mealPrice){
